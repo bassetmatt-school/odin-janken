@@ -1,5 +1,3 @@
-console.log("Hello, World!");
-
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
@@ -34,8 +32,6 @@ function getHumanChoice() {
 }
 
 
-let humanScore = 0;
-let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
     let human = parseBack(humanChoice)
@@ -62,4 +58,17 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-console.log(playRound(getHumanChoice(), getComputerChoice()))
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        let s = playRound(getHumanChoice(), getComputerChoice());
+        console.log(`Round ${i + 1}: ${s}`);
+        if (s.startsWith("Win")) {
+            humanScore += 1;
+        } else if (s.startsWith("Loss")) {
+            computerScore += 1;
+        }
+    }
+    console.log(`Game finished. Scores:\nUser: ${humanScore}\nComputer: ${computerScore}`)
+}
