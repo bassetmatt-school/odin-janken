@@ -34,8 +34,8 @@ function getHumanChoice() {
 
 
 function playRound(humanChoice, computerChoice) {
-    let human = parseBack(humanChoice)
-    let computer = parseBack(computerChoice)
+    let human = parseBack(humanChoice);
+    let computer = parseBack(computerChoice);
 
     if (human == computer) {
         return `Draw! You both played  ${computerChoice}.`;
@@ -52,9 +52,9 @@ function playRound(humanChoice, computerChoice) {
     }
 
     if (human < computer) {
-        return `Loss! ${computerChoice} beats ${humanChoice}.`
+        return `Loss! ${computerChoice} beats ${humanChoice}.`;
     } else { // human > computer
-        return `Win! ${humanChoice} beats ${computerChoice}.`
+        return `Win! ${humanChoice} beats ${computerChoice}.`;
     }
 }
 
@@ -70,5 +70,5 @@ function playGame() {
             computerScore += 1;
         }
     }
-    console.log(`Game finished. Scores:\nUser: ${humanScore}\nComputer: ${computerScore}`)
+    console.log(`Game finished. Scores:\nUser: ${humanScore}\nComputer: ${computerScore}`);
 }
