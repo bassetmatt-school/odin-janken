@@ -26,49 +26,91 @@ function parseBack(s) {
     }
 }
 
-function getHumanChoice() {
-    let human = prompt("Rock, paper or scissors?");
-    return human;
-}
+function roundLogic(player_choice, computer_choice) {
+    let player = parseBack(player_choice);
+    let computer = parseBack(computer_choice);
 
-
-
-function playRound(humanChoice, computerChoice) {
-    let human = parseBack(humanChoice);
-    let computer = parseBack(computerChoice);
-
-    if (human == computer) {
-        return `Draw! You both played  ${computerChoice}.`;
+    if (player == computer) {
+        return [0, `Draw! You both played  ${computer_choice}.`];
     }
     // else
 
-    if (human + computer == 2) { // One is zero, the other is two. Both being one is handled above
+    if (player + computer == 2) { // One is zero, the other is two. Both being one is handled above
         // Rock becomes 3 to be over 2 to beat scissors
-        if (human == 0) {
-            human += 3;
+        if (player == 0) {
+            player += 3;
         } else { // computer == 0
             computer += 3;
         }
     }
 
-    if (human < computer) {
-        return `Loss! ${computerChoice} beats ${humanChoice}.`;
+    if (player < computer) {
+        return [-1, `Loss! ${computer_choice} beats ${player_choice}.`];
     } else { // human > computer
-        return `Win! ${humanChoice} beats ${computerChoice}.`;
+        return [1, `Win! ${player_choice} beats ${computer_choice}.`];
     }
 }
 
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < 5; i++) {
-        let s = playRound(getHumanChoice(), getComputerChoice());
-        console.log(`Round ${i + 1}: ${s}`);
-        if (s.startsWith("Win")) {
-            humanScore += 1;
-        } else if (s.startsWith("Loss")) {
-            computerScore += 1;
-        }
+let player_score = 0;
+let computer_score = 0;
+
+
+function playRound(player_choice) {
+    let result = roundLogic(player_choice, getComputerChoice())
+
+    if (result[0] === 1) {
+        player_score += 1
+        document.querySelector("#player-score")
+            .textContent = player_score
+    } else if (result[0] === -1) {
+        computer_score += 1
+        document.querySelector("#cpu-score")
+            .textContent = computer_score
     }
-    console.log(`Game finished. Scores:\nUser: ${humanScore}\nComputer: ${computerScore}`);
+    addLog(result)
+}
+
+// DOM things
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        console.log(`Click! ${button.id}`)
+        playRound(button.id)
+    })
+})
+
+
+function logScore(win) {
+    let log_score = document.createElement("div");
+    log_score.classList.add("result", "log-score");
+    if (win) {
+        log_score.textContent = "+1"
+    }
+    return log_score
+}
+
+function addLog(res) {
+    const logs = document.querySelector("#results-block");
+
+    let new_log = document.createElement("div");
+    new_log.classList.add("result", "flex-h", "log");
+
+    let cpu_score = logScore(res[0] === -1)
+    let human_score = logScore(res[0] === 1)
+
+    let log_text = document.createElement("div")
+    log_text.classList.add("result", "log-text")
+    log_text.textContent = res[1]
+
+    new_log.appendChild(cpu_score);
+    new_log.appendChild(log_text);
+    new_log.appendChild(human_score);
+
+    logs.insertBefore(new_log, document.querySelector(".log"))
+}
+
+function reset() {
+    document.querySelectorAll()
 }

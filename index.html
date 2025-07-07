@@ -4,11 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <script src="./script.js"></script>
+<body class="flex-v">
+    <div class="flex-h" id="header">
+        <div></div>
+        <div id="title">Rock Paper Scissors</div>
+        <div>
+            <ul>
+                <li><a href="#" id="reset">Reset</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="flex-h" id="game">
+        <div class="flex-v score-cont">
+            <div class="score-title">
+                CPU
+            </div>
+            <div class="score-box" id="cpu-score">
+                0
+            </div>
+        </div>
+        <div class="flex-h" id="button-block">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <div class="flex-v score-cont">
+            <div class="score-title">
+                Player
+            </div>
+            <div class="score-box" id="player-score">
+                0
+            </div>
+        </div>
+    </div>
+    <div class="flex-v" id="results-block">
+        <div class="result flex-h" id="logs-title">
+            Result logs
+        </div>
+
+        <div class="result log flex-h" id="phantom-log">
+        </div>
+    </div>
 </body>
 
 </html>

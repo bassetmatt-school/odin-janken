@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&family=Roboto:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: Roboto, sans-serif;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: grey;
+}
+
+body {
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+}
+
+.flex-v, .flex-h {
+    display: flex;
+}
+
+.flex-v {
+    flex-direction: column;
+}
+
+#header {
+    background-color: papayawhip;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 64px;
+    margin-bottom: 32px;
+    width: 100vw;
+}
+
+#title {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#game {
+    margin-bottom: 32px;
+    justify-content: center;
+    gap: 64px;
+    align-items: center;
+}
+
+.score-title {
+    font-size: 24px;
+    text-align: center;
+}
+
+.score-box {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 12px;
+    width: 64px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.score-cont {
+    width: 64px;
+    font-weight: bold;
+}
+
+#button-block {
+    gap: 32px;
+}
+
+button {
+    background-color: rgb(218, 144, 32);
+    color: rgb(45, 22, 12);
+    border: none;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin: 5px 0px;
+    max-height: 48px;
+}
+
+button:hover {
+    background-color: rgb(192, 128, 31);
+    cursor: pointer;
+}
+
+#results-block {
+    background-color: gray;
+    justify-content: flex-start;
+}
+
+#logs-title {
+    font-size: 18px;
+    color: black;
+}
+
+.result {
+    color: lightslategray;
+    text-align: center;
+    justify-content: center;
+}
+
+.log {
+    border-top: 1px dashed white;
+}
+
+#phantom-log {
+    border-top: 0px;
+}
+
+.log-text {
+    /* min-width: 350px; */
+    color: black;
+    flex: 3;
+}
+
+.log-score {
+    /* min-width: 64px; */
+    padding: 0px 16px;
+    /* border: 1px solid black; */
+    color: black;
+    flex: 1;
+}
