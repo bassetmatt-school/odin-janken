@@ -86,11 +86,30 @@ document.querySelector("a#reset").addEventListener(
     }
 )
 
+function applyScoreStyles(player, color) {
+    const container = document.querySelector(`#${player}-cont`);
+    container.setAttribute("style", `color: ${color}`)
+}
+
 function updateScoresUI() {
     document.querySelector("#player-score")
         .textContent = player_score;
     document.querySelector("#cpu-score")
         .textContent = computer_score;
+
+    const green = "#198844";
+    const red = "#CC342B";
+    const yellow = "#FBA922";
+
+    let colors = [yellow, yellow]
+    if (player_score < computer_score) {
+        colors = [red, green];
+    } else if (player_score > computer_score) {
+        colors = [green, red];
+    }
+
+    applyScoreStyles("player", colors[0]);
+    applyScoreStyles("cpu", colors[1]);
 }
 
 function logScore(win) {
@@ -126,4 +145,10 @@ function reset() {
     player_score = 0;
     computer_score = 0;
     updateScoresUI()
+    const logs = document.querySelector("#results-block");
+    const log_list = document.querySelectorAll(".log");
+
+    log_list.forEach((log) =>
+        logs.removeChild(log)
+    )
 }

@@ -95,40 +95,43 @@ button:hover {
     cursor: pointer;
 }
 
-#results-block {
-    background-color: gray;
+#results-block, #logs-title {
     justify-content: flex-start;
+    text-align: center;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    color: #c5c8c6;
 }
 
 #logs-title {
     font-size: 18px;
-    color: black;
+    text-align: center;
 }
 
-.result {
-    color: lightslategray;
-    text-align: center;
-    justify-content: center;
-}
 
 .log {
-    border-top: 1px dashed white;
+    border-top: 1px dashed;
+    text-align: center;
+    justify-content: center;
+    color: #c5c8c6;
+    font-family: 'Courier New', Courier, monospace;
+    padding-bottom: 8px;
+    padding-top: 8px;
 }
 
-#phantom-log {
-    border-top: 0px;
-}
 
 .log-text {
-    /* min-width: 350px; */
-    color: black;
+    min-width: 350px;
     flex: 3;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .log-score {
-    /* min-width: 64px; */
-    padding: 0px 16px;
     /* border: 1px solid black; */
-    color: black;
+    width: 48px;
     flex: 1;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
 }
