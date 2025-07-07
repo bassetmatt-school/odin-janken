@@ -56,18 +56,16 @@ let computer_score = 0;
 
 
 function playRound(player_choice) {
-    let result = roundLogic(player_choice, getComputerChoice())
+    let result = roundLogic(player_choice, getComputerChoice());
 
     if (result[0] === 1) {
-        player_score += 1
-        document.querySelector("#player-score")
-            .textContent = player_score
+        player_score += 1;
     } else if (result[0] === -1) {
-        computer_score += 1
-        document.querySelector("#cpu-score")
-            .textContent = computer_score
+        computer_score += 1;
     }
-    addLog(result)
+
+    updateScoresUI();
+    addLog(result);
 }
 
 // DOM things
@@ -76,19 +74,32 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
     button.addEventListener("click", (e) => {
-        console.log(`Click! ${button.id}`)
-        playRound(button.id)
+        console.log(`Click! ${button.id}`);
+        playRound(button.id);
     })
 })
 
+document.querySelector("a#reset").addEventListener(
+    "click", (e) => {
+        console.log("Reset requested");
+        reset();
+    }
+)
+
+function updateScoresUI() {
+    document.querySelector("#player-score")
+        .textContent = player_score;
+    document.querySelector("#cpu-score")
+        .textContent = computer_score;
+}
 
 function logScore(win) {
     let log_score = document.createElement("div");
     log_score.classList.add("result", "log-score");
     if (win) {
-        log_score.textContent = "+1"
+        log_score.textContent = "+1";
     }
-    return log_score
+    return log_score;
 }
 
 function addLog(res) {
@@ -97,20 +108,22 @@ function addLog(res) {
     let new_log = document.createElement("div");
     new_log.classList.add("result", "flex-h", "log");
 
-    let cpu_score = logScore(res[0] === -1)
-    let human_score = logScore(res[0] === 1)
+    let cpu_score = logScore(res[0] === -1);
+    let human_score = logScore(res[0] === 1);
 
-    let log_text = document.createElement("div")
-    log_text.classList.add("result", "log-text")
-    log_text.textContent = res[1]
+    let log_text = document.createElement("div");
+    log_text.classList.add("result", "log-text");
+    log_text.textContent = res[1];
 
     new_log.appendChild(cpu_score);
     new_log.appendChild(log_text);
     new_log.appendChild(human_score);
 
-    logs.insertBefore(new_log, document.querySelector(".log"))
+    logs.insertBefore(new_log, document.querySelector(".log"));
 }
 
 function reset() {
-    document.querySelectorAll()
+    player_score = 0;
+    computer_score = 0;
+    updateScoresUI()
 }

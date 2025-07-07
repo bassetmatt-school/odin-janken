@@ -20,6 +20,8 @@ body {
     align-items: center;
     justify-content: space-between;
     margin: 0;
+    background-color: #111111;
+    color: #c5c8c6;
 }
 
 .flex-v, .flex-h {
@@ -31,7 +33,7 @@ body {
 }
 
 #header {
-    background-color: papayawhip;
+    background-color: #181818;
     justify-content: space-between;
     align-items: center;
     padding: 24px 64px;
@@ -57,7 +59,7 @@ body {
 }
 
 .score-box {
-    border: 2px solid black;
+    border: 2px solid;
     border-radius: 8px;
     padding: 12px;
     width: 64px;
@@ -68,15 +70,17 @@ body {
 .score-cont {
     width: 64px;
     font-weight: bold;
+    color: #FBA922;
+    border-color: #FBA922;
 }
+
 
 #button-block {
     gap: 32px;
 }
 
 button {
-    background-color: rgb(218, 144, 32);
-    color: rgb(45, 22, 12);
+    background-color: #3971ED;
     border: none;
     font-weight: bold;
     font-size: 18px;
@@ -87,7 +91,7 @@ button {
 }
 
 button:hover {
-    background-color: rgb(192, 128, 31);
+    background-color: #3162ca;
     cursor: pointer;
 }
 
