@@ -53,7 +53,7 @@ function roundLogic(player_choice, computer_choice) {
 
 let player_score = 0;
 let computer_score = 0;
-
+let alert_activated = false;
 
 function playRound(player_choice) {
     let result = roundLogic(player_choice, getComputerChoice());
@@ -66,6 +66,14 @@ function playRound(player_choice) {
 
     updateScoresUI();
     addLog(result);
+    if (!alert_activated && player_score === 5) {
+        alert("Player Won!");
+        alert_activated = true;
+    }
+    if (!alert_activated && computer_score === 5) {
+        alert("Computer Won :(")
+        alert_activated = true;
+    }
 }
 
 // DOM things
@@ -151,4 +159,5 @@ function reset() {
     log_list.forEach((log) =>
         logs.removeChild(log)
     )
+    alert_activated = false;
 }
